@@ -26,8 +26,8 @@ class HopFieldNetwork:
         self.w = 1/self.n_bits * self.w
     
     def asynchronousUpdate(self, input, neuron_index_m):
-        neuron_w = self.w[neuron_index_m, :]
-        activation = neuron_w @ input
+        self.neuron_w = self.w[neuron_index_m, :]
+        activation = self.neuron_w @ input
         s_i = np.sign(activation) 
         if s_i == 0:
             s_i = 1
